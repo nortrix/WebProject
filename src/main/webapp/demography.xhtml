@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        <title>Facelets Hello World</title>
+        <h:outputStylesheet library="css" name="style.css" />
+    </h:head>
+    <h:body>
+        
+                <!--шапка-->
+                
+        <ui:include src="headerFrame.xhtml" />
+        <table width="100%">
+            <tr valign="top">
+                <td width="120">
+                    
+                    <!--меню-->
+                    
+                    <ui:include src="menuFrame.xhtml" />
+                    
+                </td>
+                
+                <!--Ячейка содержащая основное содержание-->
+                
+                <td align="center">
+                    <h2>Введите:</h2>                    
+                    <h:form prependId="false">
+                        <table>
+                            <tr>
+                                <td>Район:</td>
+                                <td>                                
+                                    <h:inputText id="district" value="#{demographyBean.district}" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Обеспеченность врачами на 1т.:</td>
+                                <td>
+                                    <h:inputText id="doctorsSecurity" value="#{demographyBean.doctorsSecurity}" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Рождаемость на 1т.:</td>
+                                <td>
+                                    <h:inputText id="birthrate" value="#{demographyBean.birthrate}" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Смертность на 1т.:</td>
+                                <td>
+                                    <h:inputText id="mortality" value="#{demographyBean.mortality}" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Смерт. в трудовом возр.:</td>
+                                <td>
+                                    <h:inputText id="mortalityInTheWorkingAge" value="#{demographyBean.mortalityInTheWorkingAge}" />
+                                </td>
+                            </tr>
+                            <tr align="center">                            
+                                <td colspan="2">
+                                    <h:commandButton value="Запись введенных данных в б/д">
+                                        <f:ajax execute="district doctorsSecurity birthrate mortality mortalityInTheWorkingAge" render="out" />
+                                    </h:commandButton>
+                                </td>
+                            </tr>
+                            <tr align="center">
+                                <td colspan="2">
+                                    <h3><h:outputText id="out" value="#{demographyBean.feedBack}" /></h3>
+                                </td>
+                            </tr>
+                            <tr align="right">
+                                <td colspan="2">
+                                    <h6>//После того как все данные будут введены нажмите на кнопку "Далее" для продолжения.</h6>
+                                    <h:commandButton value="Далее" />
+                                </td>
+                            </tr>
+                        </table>
+                    </h:form>                    
+                </td>
+                
+                <!--Конец ячейки содержащей основное содержание-->
+                
+            </tr>
+        </table>
+    </h:body>
+</html>
