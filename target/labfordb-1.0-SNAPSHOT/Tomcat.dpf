@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context antiJARLocking="true" path="/labfordb">
+  <Resource auth="Container" driverClassName="org.h2.Driver" name="jdbc/mydb" password="sa" type="javax.sql.DataSource" url="jdbc:derby://localhost:1527/COREJSF;create=true" username="sa"/>
+</Context>

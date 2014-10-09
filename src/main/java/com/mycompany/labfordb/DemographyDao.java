@@ -26,11 +26,12 @@ public class DemographyDao {
     public void setDemographyData(String district, int doctorsSecurity, 
             int birthrate, int mortality, int mortalityInTheWorkingAge) {
         
-        String QUERY_FOR_UPDATE_DEMOGRAPHY_TABLE =//"BEGIN; "
-//                + "INSERT INTO PUBLIC.DISTRICTS (NAME) VALUES('" + district + "'); "
-                /*+*/ "INSERT INTO DEMOGRAPHY (DOCTORS_SECURITY, BIRTHRATE, MORTALITY, MORTALITY_IN_THE_WORKING_AGE, ID_DISTRICT) "
-                + "VALUES(" + doctorsSecurity + ", " + birthrate + ", " + mortality + ", " + mortalityInTheWorkingAge + ", LAST_INSERT_ID()) "
-;//                + "COMMIT;";
+        String QUERY_FOR_UPDATE_DEMOGRAPHY_TABLE = 
+                "BEGIN; "
+                + "INSERT INTO DISTRICTS (NAME) VALUES('" + district + "'); \n" +
+                "INSERT INTO DEMOGRAPHY (DOCTORS_SECURITY, BIRTHRATE, MORTALITY, MORTALITY_IN_THE_WORKING_AGE, ID_DISTRICT)\n" +
+                "VALUES(" + doctorsSecurity + ", " + birthrate + ", " + mortality + ", " + mortalityInTheWorkingAge + ", LAST_INSERT_ID());\n" +
+                "COMMIT;";
         
         try {   
             Connection conn = DataSource.instance().connection();
@@ -38,6 +39,8 @@ public class DemographyDao {
             try {                
                 st = conn.createStatement();
                 st.executeUpdate(QUERY_FOR_UPDATE_DEMOGRAPHY_TABLE);
+            }catch (SQLException exe){
+                exe.printStackTrace();
             } finally {
                 try { 
                     if (st != null) st.close(); 
@@ -52,7 +55,7 @@ public class DemographyDao {
                     System.out.println("Problems with closing connection");
                 };
             }
-        } catch (SQLException ex) {
+        } catch (Exception ex) {
             System.out.println("ERROR WITH INSERT NEW DemographyData");
             ex.printStackTrace();
         }
