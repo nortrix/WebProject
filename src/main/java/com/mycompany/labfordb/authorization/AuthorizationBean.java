@@ -19,39 +19,16 @@ public class AuthorizationBean implements Serializable{
     
     private String login;
     private String password;
-    private String authorization;
 
-//    public String getAuthorization() {
-//        if(login.equals(User.getInstance().getLogin()) && password.equals(User.getInstance().getPassword())) {
-//            authorization = "demography.xhtml";
-//            return authorization;
-//        } else {
-//            authorization = "welcome.xhtml";
-//            return authorization;
-//        }        
-//    }
-
-//    public void setAuthorization(String authorization) {
-//        this.authorization = authorization;
-
-    public String getAuthorization() {
-        
-        if(login.equals(User.getInstance().getLogin()) && password.equals(User.getInstance().getPassword())) {
-            authorization = "demography.xhtml";
-            return authorization;
-        } else {
-            authorization = "welcome.xhtml";
-            return authorization;
-        }  
-    }
-
-    public void setAuthorization(String authorization) {
-        this.authorization = authorization;
-    }
-
-//    }
     public void setLogin(String login) {
         this.login = login;
+        System.out.println("" + login);
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+        System.out.println("" + password);
+        AuthorizationDao.getInstance().userInitialization(login, password);
     }
 
     public String getLogin() {
@@ -62,8 +39,11 @@ public class AuthorizationBean implements Serializable{
         return password;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public boolean isLogged() {
+        System.out.println("" + AuthorizationUser.isLogged);
+        return AuthorizationUser.isLogged;
+        
     }
+
     
 }

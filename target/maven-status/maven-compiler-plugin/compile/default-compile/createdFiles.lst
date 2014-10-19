@@ -1,8 +1,5 @@
+com\mycompany\labfordb\Name.class
 com\mycompany\labfordb\util\DataSource.class
-com\mycompany\labfordb\authorization\User.class
-com\mycompany\labfordb\DemographyDao.class
-com\mycompany\labfordb\DemographyBean.class
 com\mycompany\labfordb\FirstBean.class
 com\mycompany\labfordb\TableData.class
 com\mycompany\labfordb\authorization\AuthorizationBean.class
-com\mycompany\labfordb\Name.class

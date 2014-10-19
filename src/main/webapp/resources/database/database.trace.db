@@ -36,3 +36,96 @@ drop all table [42001-173]
 org.h2.jdbc.JdbcSQLException: Синтаксическая ошибка в выражении SQL "DROP ALL TABLE[*] FROM H2 - WEBPROJECT "; ожидалось "OBJECTS"
 Syntax error in SQL statement "DROP ALL TABLE[*] FROM H2 - WEBPROJECT "; expected "OBJECTS"; SQL statement:
 drop all table from H2 - WebProject [42001-173]
+10-10 13:34:51 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Неоднозначное имя столбца "ID"
+Ambiguous column name "ID"; SQL statement:
+SELECT ID, DOCTORS_SECURITY, BIRTHRATE, MORTALITY, MORTALITY_IN_THE_WORKING_AGE, NAME
+FROM DEMOGRAPHY, DISTRICTS WHERE DEMOGRAPHY.ID_DISTRICT = DISTRICTS.ID [90059-173]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:331)
+	at org.h2.message.DbException.get(DbException.java:171)
+	at org.h2.message.DbException.get(DbException.java:148)
+	at org.h2.expression.ExpressionColumn.mapColumn(ExpressionColumn.java:121)
+	at org.h2.expression.ExpressionColumn.mapColumns(ExpressionColumn.java:91)
+	at org.h2.command.dml.Select.init(Select.java:779)
+	at org.h2.command.Parser.parseSelect(Parser.java:1544)
+	at org.h2.command.Parser.parsePrepared(Parser.java:405)
+	at org.h2.command.Parser.parse(Parser.java:279)
+	at org.h2.command.Parser.parse(Parser.java:251)
+	at org.h2.command.Parser.prepareCommand(Parser.java:218)
+	at org.h2.engine.Session.prepareLocal(Session.java:428)
+	at org.h2.engine.Session.prepareCommand(Session.java:377)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1138)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:168)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:156)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.execute(JDBCStatementImpl.java:369)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.executeStatement(JDBCStatementImpl.java:155)
+	at org.jkiss.dbeaver.runtime.sql.SQLQueryJob.executeSingleQuery(SQLQueryJob.java:360)
+	at org.jkiss.dbeaver.runtime.sql.SQLQueryJob.extractData(SQLQueryJob.java:628)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor$QueryResultsProvider.readData(SQLEditor.java:1169)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetDataPumpJob.run(ResultSetDataPumpJob.java:132)
+	at org.jkiss.dbeaver.runtime.AbstractJob.run(AbstractJob.java:91)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+10-16 15:24:20 database: could not close the database
+java.lang.IllegalStateException: Can't overwrite cause with java.lang.IllegalStateException: Illegal access: this web application instance has been stopped already.  Could not load java.lang.LinkageError.  The eventual following stack trace is caused by an error thrown for debugging purposes as well as to attempt to terminate the thread which caused the illegal access, and has no functional impact.
+	at java.lang.Throwable.initCause(Throwable.java:457)
+	at org.apache.catalina.loader.WebappClassLoader.checkStateForClassLoading(WebappClassLoader.java:1335)
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1216)
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1177)
+	at org.h2.message.DbException.convert(DbException.java:279)
+	at org.h2.message.DbException.toSQLException(DbException.java:257)
+	at org.h2.message.TraceObject.logAndConvert(TraceObject.java:368)
+	at org.h2.jdbc.JdbcPreparedStatement.executeQuery(JdbcPreparedStatement.java:114)
+	at org.h2.store.LobStorageBackend.removeAllForTable(LobStorageBackend.java:205)
+	at org.h2.engine.Database.close(Database.java:1168)
+	at org.h2.engine.DatabaseCloser.run(DatabaseCloser.java:64)
+Caused by: java.lang.ClassNotFoundException
+	at org.apache.catalina.loader.WebappClassLoader.checkStateForClassLoading(WebappClassLoader.java:1334)
+	... 9 more
+10-17 15:20:21 database: could not close the database
+java.lang.IllegalStateException: Can't overwrite cause with java.lang.IllegalStateException: Illegal access: this web application instance has been stopped already.  Could not load java.lang.LinkageError.  The eventual following stack trace is caused by an error thrown for debugging purposes as well as to attempt to terminate the thread which caused the illegal access, and has no functional impact.
+	at java.lang.Throwable.initCause(Throwable.java:457)
+	at org.apache.catalina.loader.WebappClassLoader.checkStateForClassLoading(WebappClassLoader.java:1335)
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1216)
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1177)
+	at org.h2.message.DbException.convert(DbException.java:279)
+	at org.h2.message.DbException.toSQLException(DbException.java:257)
+	at org.h2.message.TraceObject.logAndConvert(TraceObject.java:368)
+	at org.h2.jdbc.JdbcPreparedStatement.executeQuery(JdbcPreparedStatement.java:114)
+	at org.h2.store.LobStorageBackend.removeAllForTable(LobStorageBackend.java:205)
+	at org.h2.engine.Database.close(Database.java:1168)
+	at org.h2.engine.DatabaseCloser.run(DatabaseCloser.java:64)
+Caused by: java.lang.ClassNotFoundException
+	at org.apache.catalina.loader.WebappClassLoader.checkStateForClassLoading(WebappClassLoader.java:1334)
+	... 9 more
+10-17 15:26:12 database: could not close the database
+java.lang.IllegalStateException: Can't overwrite cause with java.lang.IllegalStateException: Illegal access: this web application instance has been stopped already.  Could not load java.lang.LinkageError.  The eventual following stack trace is caused by an error thrown for debugging purposes as well as to attempt to terminate the thread which caused the illegal access, and has no functional impact.
+	at java.lang.Throwable.initCause(Throwable.java:457)
+	at org.apache.catalina.loader.WebappClassLoader.checkStateForClassLoading(WebappClassLoader.java:1335)
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1216)
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1177)
+	at org.h2.message.DbException.convert(DbException.java:279)
+	at org.h2.message.DbException.toSQLException(DbException.java:257)
+	at org.h2.message.TraceObject.logAndConvert(TraceObject.java:368)
+	at org.h2.jdbc.JdbcPreparedStatement.executeQuery(JdbcPreparedStatement.java:114)
+	at org.h2.store.LobStorageBackend.removeAllForTable(LobStorageBackend.java:205)
+	at org.h2.engine.Database.close(Database.java:1168)
+	at org.h2.engine.DatabaseCloser.run(DatabaseCloser.java:64)
+Caused by: java.lang.ClassNotFoundException
+	at org.apache.catalina.loader.WebappClassLoader.checkStateForClassLoading(WebappClassLoader.java:1334)
+	... 9 more
+10-17 15:40:33 database: could not close the database
+java.lang.IllegalStateException: Can't overwrite cause with java.lang.IllegalStateException: Illegal access: this web application instance has been stopped already.  Could not load java.lang.LinkageError.  The eventual following stack trace is caused by an error thrown for debugging purposes as well as to attempt to terminate the thread which caused the illegal access, and has no functional impact.
+	at java.lang.Throwable.initCause(Throwable.java:457)
+	at org.apache.catalina.loader.WebappClassLoader.checkStateForClassLoading(WebappClassLoader.java:1335)
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1216)
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1177)
+	at org.h2.message.DbException.convert(DbException.java:279)
+	at org.h2.message.DbException.toSQLException(DbException.java:257)
+	at org.h2.message.TraceObject.logAndConvert(TraceObject.java:368)
+	at org.h2.jdbc.JdbcPreparedStatement.executeQuery(JdbcPreparedStatement.java:114)
+	at org.h2.store.LobStorageBackend.removeAllForTable(LobStorageBackend.java:205)
+	at org.h2.engine.Database.close(Database.java:1168)
+	at org.h2.engine.DatabaseCloser.run(DatabaseCloser.java:64)
+Caused by: java.lang.ClassNotFoundException
+	at org.apache.catalina.loader.WebappClassLoader.checkStateForClassLoading(WebappClassLoader.java:1334)
+	... 9 more

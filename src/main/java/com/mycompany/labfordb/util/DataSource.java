@@ -82,15 +82,12 @@ public class DataSource {
 
     static {
         System.out.println("Initializing the connection pool");
-//          String connectionUrl = "jdbc:h2:./src/main/resources/database/database;AUTO_SERVER=TRUE";
         String connectionUrl = "jdbc:h2:D:/projects/git/WebProject/src/main/webapp/resources/database/database;AUTO_SERVER=TRUE";
-//D:\projects\git\WebProject\src\main\webapp\resources\database
-//          String connectionUrl = "jdbc:h2:D:/projects/labfordb/src/main/resources/database/database;AUTO_SERVER=TRUE";
         String connectionUserName = "sa";
         String connectionPassword = "sa";
         String connectionDriver = "org.h2.Driver";
 
-        System.out.println("Path is :" + new File("./").getAbsolutePath());
+        //System.out.println("Path is :" + new File("./").getAbsolutePath());
         self = new DataSource(connectionDriver, connectionUrl, connectionUserName, connectionPassword);
     }
 
