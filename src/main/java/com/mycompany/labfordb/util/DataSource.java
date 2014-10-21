@@ -22,6 +22,8 @@ import org.apache.commons.pool.impl.GenericObjectPool;
  * @author Валик
  */
 
+//?????? Исправить в б/д поля с типом int на double в таблицах demography и bakery_industry
+
 /*
  CREATE TABLE customers (
  id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,

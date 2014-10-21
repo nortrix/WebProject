@@ -30,8 +30,6 @@ public class AuthorizationDao {
                 ResultSet rs = st.executeQuery();
                 
                 while (rs.next()) {                    
-//                    System.out.println(rs.getInt("ID") + ")" + rs.getString("FIRST_NAME"));
-//                    System.out.println("" + AuthorizationUser.isLogged);
                     if (pass.equals(rs.getString("PASSWORD"))) {
                         AuthorizationUser.setId(rs.getInt("ID"));
                         AuthorizationUser.setLogin(login);
@@ -41,6 +39,14 @@ public class AuthorizationDao {
                         AuthorizationUser.setMail(rs.getString("EMAIL"));
                         AuthorizationUser.isIsLogged();
                     }
+//                        AuthorizationUser.setId(0);
+//                        AuthorizationUser.setLogin(null);
+//                        AuthorizationUser.setLastName(null);
+//                        AuthorizationUser.setFirstName(null);
+//                        AuthorizationUser.setPassword(null);
+//                        AuthorizationUser.setMail(null);
+//                        AuthorizationUser.isNotLogged();
+//                    }
                     //System.out.println("" + AuthorizationUser.isLogged);
 
                 }

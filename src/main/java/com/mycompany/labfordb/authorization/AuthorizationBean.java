@@ -19,6 +19,7 @@ public class AuthorizationBean implements Serializable{
     
     private String login;
     private String password;
+    private String feedBack;
 
     public void setLogin(String login) {
         this.login = login;
@@ -27,8 +28,9 @@ public class AuthorizationBean implements Serializable{
 
     public void setPassword(String password) {
         this.password = password;
-        System.out.println("" + password);
+        System.out.println("" + AuthorizationUser.getId() + " " +AuthorizationUser.getFirstName());
         AuthorizationDao.getInstance().userInitialization(login, password);
+        System.out.println("" + AuthorizationUser.getId() + " " +AuthorizationUser.getFirstName());
     }
 
     public String getLogin() {
@@ -45,5 +47,14 @@ public class AuthorizationBean implements Serializable{
         
     }
 
+    public String getFeedBack() {
+        if (AuthorizationUser.isLogged) {
+            feedBack = "Authorization success";
+            return feedBack;
+        } else {
+            feedBack = "";
+            return feedBack;
+        }        
+    }       
     
 }

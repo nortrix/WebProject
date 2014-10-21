@@ -25,39 +25,9 @@
 
                 </td>
                 <td align="center">
-                    <c:choose>
-                        <c:when test="#{authorizationBean.logged}" >
-                            <h:outputLabel value="hello" />
-                        </c:when>
-                        <c:otherwise>
-                            <h:form prependId="false">
-                                <table>
-                                    <tr>
-                                        <td>Login:</td>
-                                        <td>                                
-                                            <h:inputText id="login" requiredMessage="Заполните данное поле" value="#{authorizationBean.login}" />
-<!--                                            <h:message for="login" class="error_message" />-->
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Password:</td>
-                                        <td>
-                                            <h:inputText id="password" requiredMessage="Заполните данное поле" value="#{authorizationBean.password}" />
-                                            <!--<h:message for="password" class="error_message" />-->
-
-                                        </td>
-                                    </tr>                            
-                                    <tr align="center">                            
-                                        <td colspan="2">
-                                            <h:commandButton value="Authorization">
-                                                <f:ajax execute="login password" />
-                                            </h:commandButton>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </h:form>
-                        </c:otherwise>
-                    </c:choose>
+                    
+                    <h:outputLabel value="hello" />
+                    
                 </td>
             </tr>
         </table>

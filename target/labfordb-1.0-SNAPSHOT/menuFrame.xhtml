@@ -8,6 +8,7 @@
 
     <ul class="drop_vert_menu">
         <li><h:link value="Главная" outcome="index" /></li>
+        <li><h:link value="Войти" outcome="authorization" /></li>
         <li><a href="#"><span>Области</span></a>
             <ul>
                 <c:choose>
@@ -16,7 +17,7 @@
                         <li><a href="#"><span>Хлебобулочная отрасль</span></a></li>
                     </c:when>
                     <c:otherwise>
-                        <li><h:link  value="Демография" outcome="index" /></li>
+                        <li><h:link  value="Демография" outcome="authorization" /></li>
                         <li><a href="#"><span>Хлебобулочная отрасль</span></a></li>
                     </c:otherwise>
                 </c:choose>

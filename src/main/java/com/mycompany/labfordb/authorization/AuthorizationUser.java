@@ -23,7 +23,6 @@ public class AuthorizationUser {
     public static void isIsLogged() {
         isLogged = true;
     }
-    
 
     public static void setId(int id) {
         AuthorizationUser.id = id;

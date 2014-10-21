@@ -17,14 +17,10 @@ public class Demography {
     private int mortality;
     private int mortalityInTheWorkingAge;
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public int getId() {
         return id;
     }
-    
+
     public String getDistrict() {
         return district;
     }
@@ -43,6 +39,10 @@ public class Demography {
 
     public int getMortalityInTheWorkingAge() {
         return mortalityInTheWorkingAge;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public void setDistrict(String district) {
@@ -64,4 +64,6 @@ public class Demography {
     public void setMortalityInTheWorkingAge(int mortalityInTheWorkingAge) {
         this.mortalityInTheWorkingAge = mortalityInTheWorkingAge;
     }
+
+    
 }
