@@ -19,19 +19,19 @@ and open the template in the editor.
     background: teal;
 }
 
+.tableResult {
+    text-align: center;    
+}
+
 .oddColumn {
     height: 25px;
     text-align: center;
-    background: mediumturquoise;
+    background: graytext;
 }
 
 .evenColumn {
     text-align: center;
-    background: powderblue;
-}
-
-.ageStyle {
-    background: orange;
+    background: white;
 }
 
 body {

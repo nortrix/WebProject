@@ -25,34 +25,41 @@
 
                 </td>
                 <td align="center">
-                    <h:form prependId="false">
-                        <table>
-                            <tr>
-                                <td>Login:</td>
-                                <td>                                
-                                    <h:inputText id="login" value="#{authorizationBean.login}" />
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Password:</td>
-                                <td>
-                                    <h:inputSecret id="password" value="#{authorizationBean.password}" />
-                                </td>
-                            </tr>                            
-                            <tr align="center">                            
-                                <td colspan="2">
-                                    <h:commandButton value="Authorization">
-                                        <f:ajax execute="login password" render="out" />
-                                    </h:commandButton>
-                                </td>
-                            </tr>
-                            <tr align="center">
-                                <td colspan="2">
-                                    <h:outputText id="out" value="#{authorizationBean.feedBack}" />
-                                </td>
-                            </tr>
-                        </table>
-                    </h:form>
+                    <table>
+                        <c:choose>
+                            <c:when test="#{menuBean.logged}">
+                                <h:outputText value="Authorization success" />
+                            </c:when>
+                            <c:otherwise>
+                                <h:form prependId="false">
+                                    <tr>
+                                        <td>Login:</td>
+                                        <td>                                
+                                            <h:inputText id="login" value="#{authorizationBean.login}" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Password:</td>
+                                        <td>
+                                            <h:inputSecret id="password" value="#{authorizationBean.password}" />
+                                        </td>
+                                    </tr>                            
+                                    <tr align="center">                            
+                                        <td colspan="2">
+                                            <h:commandButton value="Authorization" action="index.xhtml">
+                                                <f:ajax execute="login password" render="out" />
+                                            </h:commandButton>
+                                        </td>
+                                    </tr>
+                                    <tr align="center">
+                                        <td colspan="2">
+                                            <h:outputText id="out" value="#{authorizationBean.feedBack}" />
+                                        </td>
+                                    </tr>
+                                </h:form>
+                            </c:otherwise>
+                        </c:choose>
+                    </table>
                 </td>
             </tr>
         </table>

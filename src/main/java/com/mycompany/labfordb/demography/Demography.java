@@ -63,7 +63,5 @@ public class Demography {
 
     public void setMortalityInTheWorkingAge(int mortalityInTheWorkingAge) {
         this.mortalityInTheWorkingAge = mortalityInTheWorkingAge;
-    }
-
-    
+    }    
 }

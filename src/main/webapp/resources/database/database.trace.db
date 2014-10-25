@@ -161,3 +161,99 @@ java.lang.IllegalStateException: Can't overwrite cause with java.lang.IllegalSta
 Caused by: java.lang.ClassNotFoundException
 	at org.apache.catalina.loader.WebappClassLoader.checkStateForClassLoading(WebappClassLoader.java:1334)
 	... 9 more
+10-21 16:43:34 database: could not close the database
+java.lang.IllegalStateException: Can't overwrite cause with java.lang.IllegalStateException: Illegal access: this web application instance has been stopped already.  Could not load java.lang.LinkageError.  The eventual following stack trace is caused by an error thrown for debugging purposes as well as to attempt to terminate the thread which caused the illegal access, and has no functional impact.
+	at java.lang.Throwable.initCause(Throwable.java:457)
+	at org.apache.catalina.loader.WebappClassLoader.checkStateForClassLoading(WebappClassLoader.java:1335)
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1216)
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1177)
+	at org.h2.message.DbException.convert(DbException.java:279)
+	at org.h2.message.DbException.toSQLException(DbException.java:257)
+	at org.h2.message.TraceObject.logAndConvert(TraceObject.java:368)
+	at org.h2.jdbc.JdbcPreparedStatement.executeQuery(JdbcPreparedStatement.java:114)
+	at org.h2.store.LobStorageBackend.removeAllForTable(LobStorageBackend.java:205)
+	at org.h2.engine.Database.close(Database.java:1168)
+	at org.h2.engine.DatabaseCloser.run(DatabaseCloser.java:64)
+Caused by: java.lang.ClassNotFoundException
+	at org.apache.catalina.loader.WebappClassLoader.checkStateForClassLoading(WebappClassLoader.java:1334)
+	... 9 more
+10-24 18:51:58 database: could not close the database
+java.lang.IllegalStateException: Can't overwrite cause with java.lang.IllegalStateException: Illegal access: this web application instance has been stopped already.  Could not load java.lang.LinkageError.  The eventual following stack trace is caused by an error thrown for debugging purposes as well as to attempt to terminate the thread which caused the illegal access, and has no functional impact.
+	at java.lang.Throwable.initCause(Throwable.java:457)
+	at org.apache.catalina.loader.WebappClassLoader.checkStateForClassLoading(WebappClassLoader.java:1335)
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1216)
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1177)
+	at org.h2.message.DbException.convert(DbException.java:279)
+	at org.h2.message.DbException.toSQLException(DbException.java:257)
+	at org.h2.message.TraceObject.logAndConvert(TraceObject.java:368)
+	at org.h2.jdbc.JdbcPreparedStatement.executeQuery(JdbcPreparedStatement.java:114)
+	at org.h2.store.LobStorageBackend.removeAllForTable(LobStorageBackend.java:205)
+	at org.h2.engine.Database.close(Database.java:1168)
+	at org.h2.engine.DatabaseCloser.run(DatabaseCloser.java:64)
+Caused by: java.lang.ClassNotFoundException
+	at org.apache.catalina.loader.WebappClassLoader.checkStateForClassLoading(WebappClassLoader.java:1334)
+	... 9 more
+10-25 01:32:17 database: could not close the database
+java.lang.IllegalStateException: Can't overwrite cause with java.lang.IllegalStateException: Illegal access: this web application instance has been stopped already.  Could not load java.lang.LinkageError.  The eventual following stack trace is caused by an error thrown for debugging purposes as well as to attempt to terminate the thread which caused the illegal access, and has no functional impact.
+	at java.lang.Throwable.initCause(Throwable.java:457)
+	at org.apache.catalina.loader.WebappClassLoader.checkStateForClassLoading(WebappClassLoader.java:1335)
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1216)
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1177)
+	at org.h2.message.DbException.convert(DbException.java:279)
+	at org.h2.message.DbException.toSQLException(DbException.java:257)
+	at org.h2.message.TraceObject.logAndConvert(TraceObject.java:368)
+	at org.h2.jdbc.JdbcPreparedStatement.executeQuery(JdbcPreparedStatement.java:114)
+	at org.h2.store.LobStorageBackend.removeAllForTable(LobStorageBackend.java:205)
+	at org.h2.engine.Database.close(Database.java:1168)
+	at org.h2.engine.DatabaseCloser.run(DatabaseCloser.java:64)
+Caused by: java.lang.ClassNotFoundException
+	at org.apache.catalina.loader.WebappClassLoader.checkStateForClassLoading(WebappClassLoader.java:1334)
+	... 9 more
+10-25 13:24:07 database: could not close the database
+java.lang.IllegalStateException: Can't overwrite cause with java.lang.IllegalStateException: Illegal access: this web application instance has been stopped already.  Could not load java.lang.LinkageError.  The eventual following stack trace is caused by an error thrown for debugging purposes as well as to attempt to terminate the thread which caused the illegal access, and has no functional impact.
+	at java.lang.Throwable.initCause(Throwable.java:457)
+	at org.apache.catalina.loader.WebappClassLoader.checkStateForClassLoading(WebappClassLoader.java:1335)
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1216)
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1177)
+	at org.h2.message.DbException.convert(DbException.java:279)
+	at org.h2.message.DbException.toSQLException(DbException.java:257)
+	at org.h2.message.TraceObject.logAndConvert(TraceObject.java:368)
+	at org.h2.jdbc.JdbcPreparedStatement.executeQuery(JdbcPreparedStatement.java:114)
+	at org.h2.store.LobStorageBackend.removeAllForTable(LobStorageBackend.java:205)
+	at org.h2.engine.Database.close(Database.java:1168)
+	at org.h2.engine.DatabaseCloser.run(DatabaseCloser.java:64)
+Caused by: java.lang.ClassNotFoundException
+	at org.apache.catalina.loader.WebappClassLoader.checkStateForClassLoading(WebappClassLoader.java:1334)
+	... 9 more
+10-25 14:15:06 database: could not close the database
+java.lang.IllegalStateException: Can't overwrite cause with java.lang.IllegalStateException: Illegal access: this web application instance has been stopped already.  Could not load java.lang.LinkageError.  The eventual following stack trace is caused by an error thrown for debugging purposes as well as to attempt to terminate the thread which caused the illegal access, and has no functional impact.
+	at java.lang.Throwable.initCause(Throwable.java:457)
+	at org.apache.catalina.loader.WebappClassLoader.checkStateForClassLoading(WebappClassLoader.java:1335)
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1216)
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1177)
+	at org.h2.message.DbException.convert(DbException.java:279)
+	at org.h2.message.DbException.toSQLException(DbException.java:257)
+	at org.h2.message.TraceObject.logAndConvert(TraceObject.java:368)
+	at org.h2.jdbc.JdbcPreparedStatement.executeQuery(JdbcPreparedStatement.java:114)
+	at org.h2.store.LobStorageBackend.removeAllForTable(LobStorageBackend.java:205)
+	at org.h2.engine.Database.close(Database.java:1168)
+	at org.h2.engine.DatabaseCloser.run(DatabaseCloser.java:64)
+Caused by: java.lang.ClassNotFoundException
+	at org.apache.catalina.loader.WebappClassLoader.checkStateForClassLoading(WebappClassLoader.java:1334)
+	... 9 more
+10-25 14:19:29 database: could not close the database
+java.lang.IllegalStateException: Can't overwrite cause with java.lang.IllegalStateException: Illegal access: this web application instance has been stopped already.  Could not load java.lang.LinkageError.  The eventual following stack trace is caused by an error thrown for debugging purposes as well as to attempt to terminate the thread which caused the illegal access, and has no functional impact.
+	at java.lang.Throwable.initCause(Throwable.java:457)
+	at org.apache.catalina.loader.WebappClassLoader.checkStateForClassLoading(WebappClassLoader.java:1335)
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1216)
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1177)
+	at org.h2.message.DbException.convert(DbException.java:279)
+	at org.h2.message.DbException.toSQLException(DbException.java:257)
+	at org.h2.message.TraceObject.logAndConvert(TraceObject.java:368)
+	at org.h2.jdbc.JdbcPreparedStatement.executeQuery(JdbcPreparedStatement.java:114)
+	at org.h2.store.LobStorageBackend.removeAllForTable(LobStorageBackend.java:205)
+	at org.h2.engine.Database.close(Database.java:1168)
+	at org.h2.engine.DatabaseCloser.run(DatabaseCloser.java:64)
+Caused by: java.lang.ClassNotFoundException
+	at org.apache.catalina.loader.WebappClassLoader.checkStateForClassLoading(WebappClassLoader.java:1334)
+	... 9 more
