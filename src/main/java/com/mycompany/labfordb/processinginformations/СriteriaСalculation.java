@@ -102,14 +102,8 @@ public class СriteriaСalculation {
         
         System.out.println("criteriiMinimacsnii max = " + max + " index = " + index);
         
-//        ResultDemography resDem = new ResultDemography();
-//        resDem.setId(demographyDataList.get(index).getId());
-//        resDem.setCriteria("Минимаксный критерий");
-//        resDem.setMinOrMax("max");
-//        resDem.setResult(max);
-//        resDem.setNameObject(demographyDataList.get(index).getDistrict());
-        
-//        return resDem;
+        ResultToList.getInstance().setResultToList(demographyDataList.get(index).getId(), "Минимаксный критерий", 
+                "max", max, demographyDataList.get(index).getDistrict());
     }
     
     public void criteriiSevidj(List<PreparedDemography> demographyDataList) {
@@ -201,14 +195,8 @@ public class СriteriaСalculation {
         
         System.out.println("criteriiSevidj min = " + min + " index = " + index);
         
-//        ResultDemography resDem = new ResultDemography();
-//        resDem.setId(demographyDataList.get(index).getId());
-//        resDem.setCriteria("Критерий Сэвиджа");
-//        resDem.setMinOrMax("min");
-//        resDem.setResult(min);
-//        resDem.setNameObject(demographyDataList.get(index).getDistrict());
-//        
-//        return resDem;
+        ResultToList.getInstance().setResultToList(demographyDataList.get(index).getId(), "Критерий Сэвиджа", 
+                "min", min, demographyDataList.get(index).getDistrict());
     }
     
     public void criteriiBaiesaLaplasa(List<PreparedDemography> demographyDataList) {
@@ -253,14 +241,8 @@ public class СriteriaСalculation {
         
         System.out.println("criteriiProizvedenii max = " + max + " index = " + index);
         
-//        ResultDemography resDem = new ResultDemography();
-//        resDem.setId(demographyDataList.get(index).getId());
-//        resDem.setCriteria("Критерий произведений");
-//        resDem.setMinOrMax("max");
-//        resDem.setResult(max);
-//        resDem.setNameObject(demographyDataList.get(index).getDistrict());
-//        
-//        return resDem;
+        ResultToList.getInstance().setResultToList(demographyDataList.get(index).getId(), "Критерий произведений", 
+                "max", max, demographyDataList.get(index).getDistrict());
     }
     
     public void criteriiGermeiera(List<PreparedDemography> demographyDataList) {
