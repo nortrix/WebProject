@@ -8,6 +8,10 @@ and open the template in the editor.
     Author     : Валик
 */
 
+.preformatted {
+    white-space: pre-wrap;
+}
+
 .orders {
     border: thin solid black;    
 }

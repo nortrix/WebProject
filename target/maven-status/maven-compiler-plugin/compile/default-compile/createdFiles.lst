@@ -1,5 +1,2 @@
-com\mycompany\labfordb\Name.class
 com\mycompany\labfordb\util\DataSource.class
-com\mycompany\labfordb\FirstBean.class
-com\mycompany\labfordb\TableData.class
 com\mycompany\labfordb\authorization\AuthorizationBean.class
