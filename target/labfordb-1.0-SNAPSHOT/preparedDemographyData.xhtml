@@ -28,12 +28,21 @@
 
                 <td align="center" >
 
-                    <h4>Критерии:</h4>
-
                     <h:form>
+                        <h4>Вероятности (для вычисления кр.Байеса-Лапласа):</h4>
+                        <h:inputText size="5" value="#{criteriaBean.probability1}" />
+                        <h:inputText size="5" value="#{criteriaBean.probability2}" />
+                        <h:inputText size="5" value="#{criteriaBean.probability3}" />
+                        <h:inputText size="5" value="#{criteriaBean.probability4}" />
+                        <br />
+                        
+                        <h4>Степень оптимизма, y (для вычисления кр.Гурвица):</h4>
+                        <h:inputText size="5" value="#{criteriaBean.degreeOfOptimism}" />
+                        <h4>Критерии:</h4>
                         <h:selectManyCheckbox layout="pageDirection" value="#{criteriaBean.selectedCriteriaList}">
                             <f:selectItems value="#{criteriaBean.criteriaList}" var="list" itemValue="#{list.value}" itemLabel="#{list.label}" />
                         </h:selectManyCheckbox>
+                        
                         <h:commandButton value="Вычислить" action="evaluatingCriteriaResult.xhtml" />
                     </h:form>
 

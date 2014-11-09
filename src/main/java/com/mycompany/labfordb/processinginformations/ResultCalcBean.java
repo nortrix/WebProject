@@ -22,16 +22,13 @@ public class ResultCalcBean implements Serializable {
     private String result;
 
     public String getResult() {
-//        List<Criteria> resultList = СriteriaСalculation.getInstance().getSelectedList();
         List<ResDemogData> resultList = ResultToList.getInstance().getResultList();
         result = "";
         for (int i = 0; i < resultList.size(); i++) {
             result = result + resultList.get(i).getCriteri() + "\n" + "Вывод: "
                     + resultList.get(i).getMinOrMax() + " Объект: " + resultList.get(i).getNameObject()
                     + " № = " + resultList.get(i).getId() + " Значение: " + resultList.get(i).getReslt() + "\n\n";
-//            result = result + resultList.get(i).getLabel() + "\n";
         }
         return result;
-    }   
-    
+    }       
 }

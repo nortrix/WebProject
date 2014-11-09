@@ -18,6 +18,16 @@ public class СriteriaСalculation {
     
     private static List<Criteria> selectedList1 = new ArrayList<Criteria>();
     private List<ResultDemography> resultList = new ArrayList<ResultDemography>();
+    private double[] probArray = new double[4];
+    private double degreeOfOptimism;
+
+    public void setDegreeOfOptimism(double degreeOfOptimism) {
+        this.degreeOfOptimism = degreeOfOptimism;
+    }
+
+    public void setProbArray(double[] probArray) {
+        this.probArray = probArray;
+    }      
     
     public List<Criteria> getSelectedList() {
         return selectedList1;
@@ -34,16 +44,14 @@ public class СriteriaСalculation {
         for (int i = 0; i < selectedList1.size(); i++) {
             if (selectedList1.get(i).getValue().equals("1")) {
                 criteriiMinimacsnii(demographyDataList);
-//                resultList.add(rd);
                 System.out.println("1");
             }
             if (selectedList1.get(i).getValue().equals("2")) {
                 criteriiSevidj(demographyDataList);
-//                resultList.add(rd);
                 System.out.println("2");
             }
             if (selectedList1.get(i).getValue().equals("3")) {
-                criteriiBaiesaLaplasa(demographyDataList);
+                criteriiBaiesaLaplasa(demographyDataList, probArray);
                 System.out.println("3");
             }
             if (selectedList1.get(i).getValue().equals("4")) {
@@ -52,7 +60,6 @@ public class СriteriaСalculation {
             }
             if (selectedList1.get(i).getValue().equals("5")) {
                 criteriiProizvedenii(demographyDataList);
-//                resultList.add(rd);
                 System.out.println("5");
             }
             if (selectedList1.get(i).getValue().equals("6")) {
@@ -60,7 +67,7 @@ public class СriteriaСalculation {
                 System.out.println("6");
             }
             if (selectedList1.get(i).getValue().equals("7")) {
-                criteriiGurvitsa(demographyDataList);
+                criteriiGurvitsa(demographyDataList, degreeOfOptimism);
                 System.out.println("7");
             }
             if (selectedList1.get(i).getValue().equals("8")) {
@@ -199,8 +206,28 @@ public class СriteriaСalculation {
                 "min", min, demographyDataList.get(index).getDistrict());
     }
     
-    public void criteriiBaiesaLaplasa(List<PreparedDemography> demographyDataList) {
+    public void criteriiBaiesaLaplasa(List<PreparedDemography> demographyDataList, double[] probArray) {
         
+        double[] result = new double[demographyDataList.size()];
+        
+        for (int i = 0; i < demographyDataList.size(); i++) {
+            result[i] = (demographyDataList.get(i).getDoctorsSecurity() * probArray[0] + demographyDataList.get(i).getBirthrate() * probArray[1] + 
+                    demographyDataList.get(i).getMortality() * probArray[2] + demographyDataList.get(i).getMortalityInTheWorkingAge() * probArray[3]);
+        }
+        
+        double max = result[0];
+        int index = 0;
+        for (int i = 0; i < result.length; i++) {
+            if (max < result[i]) {
+                max = result[i];
+                index = i;
+            }            
+        }
+        
+        System.out.println("criteriiBaiesaLaplasa max = " + max + " index = " + index);
+        
+        ResultToList.getInstance().setResultToList(demographyDataList.get(index).getId(), "Критерий Байеса-Лапласа", 
+                "max", max, demographyDataList.get(index).getDistrict());
     }
     
     public void criteriiRasshirenniiMM(List<PreparedDemography> demographyDataList) {
@@ -249,8 +276,57 @@ public class СriteriaСalculation {
         
     }
     
-    public void criteriiGurvitsa(List<PreparedDemography> demographyDataList) {
+    public void criteriiGurvitsa(List<PreparedDemography> demographyDataList, double degreeOfOptimism) {
+        double[] maxOfRows = new double[demographyDataList.size()];
+        double[] minOfRows = new double[demographyDataList.size()];
+        double[] result = new double[demographyDataList.size()];
         
+        double max;
+        for (int i = 0; i < demographyDataList.size(); i++) {
+            max = demographyDataList.get(i).getDoctorsSecurity();
+            if (max < demographyDataList.get(i).getBirthrate()) {
+                max = demographyDataList.get(i).getBirthrate();
+            }
+            if (max < demographyDataList.get(i).getMortality()) {
+                max = demographyDataList.get(i).getMortality();
+            }
+            if (max < demographyDataList.get(i).getMortalityInTheWorkingAge()) {
+                max = demographyDataList.get(i).getMortalityInTheWorkingAge();
+            }
+            maxOfRows[i] = max;
+        }
+        
+        double min;
+        for (int i = 0; i < demographyDataList.size(); i++) {
+            min = demographyDataList.get(i).getDoctorsSecurity();
+            if (min > demographyDataList.get(i).getBirthrate()) {
+                min = demographyDataList.get(i).getBirthrate();
+            }
+            if (min > demographyDataList.get(i).getMortality()) {
+                min = demographyDataList.get(i).getMortality();
+            }
+            if (min > demographyDataList.get(i).getMortalityInTheWorkingAge()) {
+                min = demographyDataList.get(i).getMortalityInTheWorkingAge();
+            }
+            minOfRows[i] = min;
+        }
+        
+        for (int i = 0; i < demographyDataList.size(); i++) {
+            result[i] = degreeOfOptimism * minOfRows[i] + (1 - degreeOfOptimism) * maxOfRows[i];            
+        }
+        
+        max = result[0];
+        int index = 0;
+        for (int i = 0; i < result.length; i++) {
+            if (max < result[i]) {
+                max = result[i];
+            }            
+        }
+        
+        System.out.println("criteriiGurvitsa max = " + max + " index = " + index);
+        
+        ResultToList.getInstance().setResultToList(demographyDataList.get(index).getId(), "Критерий произведений", 
+                "max", max, demographyDataList.get(index).getDistrict());
     }
     
     public void criteriiSostavnoiBaiesaLaplasaMM(List<PreparedDemography> demographyDataList) {

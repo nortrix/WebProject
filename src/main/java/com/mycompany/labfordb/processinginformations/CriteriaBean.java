@@ -57,4 +57,57 @@ public class CriteriaBean implements Serializable {
         }
         СriteriaСalculation.getInstance().setSelectedList(selectedCriteriaList1);
     }
+    
+    
+    
+    private double probability1, probability2, probability3, probability4;
+    private double degreeOfOptimism;
+    private double[] probArray = new double[4];
+
+
+    public void setProbability1(double probability1) {
+        this.probability1 = probability1;
+        probArray[0] = probability1;
+    }
+
+    public void setProbability2(double probability2) {
+        this.probability2 = probability2;
+        probArray[1] = probability2;
+    }
+
+    public void setProbability3(double probability3) {
+        this.probability3 = probability3;
+        probArray[2] = probability3;
+    }
+
+    public void setProbability4(double probability4) {
+        this.probability4 = probability4;
+        probArray[3] = probability4;
+        СriteriaСalculation.getInstance().setProbArray(probArray);
+    }
+
+    public void setDegreeOfOptimism(double degreeOfOptimism) {
+        this.degreeOfOptimism = degreeOfOptimism;
+        СriteriaСalculation.getInstance().setDegreeOfOptimism(degreeOfOptimism);
+    }
+
+    public double getProbability1() {
+        return probability1;
+    }
+
+    public double getProbability2() {
+        return probability2;
+    }
+
+    public double getProbability3() {
+        return probability3;
+    }
+
+    public double getProbability4() {
+        return probability4;
+    }
+
+    public double getDegreeOfOptimism() {
+        return degreeOfOptimism;
+    }
 }
