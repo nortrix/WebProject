@@ -61,9 +61,10 @@ public class CriteriaBean implements Serializable {
     
     
     private double probability1, probability2, probability3, probability4;
+    private double probabilityGermeier1, probabilityGermeier2, probabilityGermeier3, probabilityGermeier4;
     private double degreeOfOptimism;
     private double[] probArray = new double[4];
-
+    private double[] probGermeierArray = new double[4];
 
     public void setProbability1(double probability1) {
         this.probability1 = probability1;
@@ -109,5 +110,42 @@ public class CriteriaBean implements Serializable {
 
     public double getDegreeOfOptimism() {
         return degreeOfOptimism;
+    }
+
+    public double getProbabilityGermeier1() {
+        return probabilityGermeier1;
+    }
+
+    public double getProbabilityGermeier2() {
+        return probabilityGermeier2;
+    }
+
+    public double getProbabilityGermeier3() {
+        return probabilityGermeier3;
+    }
+
+    public double getProbabilityGermeier4() {
+        return probabilityGermeier4;
+    }
+
+    public void setProbabilityGermeier1(double probabilityGermeier1) {
+        this.probabilityGermeier1 = probabilityGermeier1;
+        probGermeierArray[0] = probabilityGermeier1;
+    }
+
+    public void setProbabilityGermeier2(double probabilityGermeier2) {
+        this.probabilityGermeier2 = probabilityGermeier2;
+        probGermeierArray[1] = probabilityGermeier2;
+    }
+
+    public void setProbabilityGermeier3(double probabilityGermeier3) {
+        this.probabilityGermeier3 = probabilityGermeier3;
+        probGermeierArray[2] = probabilityGermeier3;
+    }
+
+    public void setProbabilityGermeier4(double probabilityGermeier4) {
+        this.probabilityGermeier4 = probabilityGermeier4;
+        probGermeierArray[3] = probabilityGermeier4;
+        СriteriaСalculation.getInstance().setProbGermeierArray(probGermeierArray);
     }
 }
