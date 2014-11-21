@@ -62,7 +62,7 @@ public class CriteriaBean implements Serializable {
     
     private double probability1, probability2, probability3, probability4;
     private double probabilityGermeier1, probabilityGermeier2, probabilityGermeier3, probabilityGermeier4;
-    private double degreeOfOptimism;
+    private double degreeOfOptimism, acceptableRisk;
     private double[] probArray = new double[4];
     private double[] probGermeierArray = new double[4];
 
@@ -86,49 +86,8 @@ public class CriteriaBean implements Serializable {
         probArray[3] = probability4;
         СriteriaСalculation.getInstance().setProbArray(probArray);
     }
-
-    public void setDegreeOfOptimism(double degreeOfOptimism) {
-        this.degreeOfOptimism = degreeOfOptimism;
-        СriteriaСalculation.getInstance().setDegreeOfOptimism(degreeOfOptimism);
-    }
-
-    public double getProbability1() {
-        return probability1;
-    }
-
-    public double getProbability2() {
-        return probability2;
-    }
-
-    public double getProbability3() {
-        return probability3;
-    }
-
-    public double getProbability4() {
-        return probability4;
-    }
-
-    public double getDegreeOfOptimism() {
-        return degreeOfOptimism;
-    }
-
-    public double getProbabilityGermeier1() {
-        return probabilityGermeier1;
-    }
-
-    public double getProbabilityGermeier2() {
-        return probabilityGermeier2;
-    }
-
-    public double getProbabilityGermeier3() {
-        return probabilityGermeier3;
-    }
-
-    public double getProbabilityGermeier4() {
-        return probabilityGermeier4;
-    }
-
-    public void setProbabilityGermeier1(double probabilityGermeier1) {
+    
+        public void setProbabilityGermeier1(double probabilityGermeier1) {
         this.probabilityGermeier1 = probabilityGermeier1;
         probGermeierArray[0] = probabilityGermeier1;
     }
@@ -147,5 +106,55 @@ public class CriteriaBean implements Serializable {
         this.probabilityGermeier4 = probabilityGermeier4;
         probGermeierArray[3] = probabilityGermeier4;
         СriteriaСalculation.getInstance().setProbGermeierArray(probGermeierArray);
+    }
+
+    public void setDegreeOfOptimism(double degreeOfOptimism) {
+        this.degreeOfOptimism = degreeOfOptimism;
+        СriteriaСalculation.getInstance().setDegreeOfOptimism(degreeOfOptimism);
+    }
+    
+    public void setAcceptableRisk(double acceptableRisk) {
+        this.acceptableRisk = acceptableRisk;
+        СriteriaСalculation.getInstance().setAcceptableRisk(acceptableRisk);
+    }
+
+    public double getProbability1() {
+        return probability1;
+    }
+
+    public double getProbability2() {
+        return probability2;
+    }
+
+    public double getProbability3() {
+        return probability3;
+    }
+
+    public double getProbability4() {
+        return probability4;
+    }
+
+    public double getProbabilityGermeier1() {
+        return probabilityGermeier1;
+    }
+
+    public double getProbabilityGermeier2() {
+        return probabilityGermeier2;
+    }
+
+    public double getProbabilityGermeier3() {
+        return probabilityGermeier3;
+    }
+
+    public double getProbabilityGermeier4() {
+        return probabilityGermeier4;
+    }
+
+    public double getDegreeOfOptimism() {
+        return degreeOfOptimism;
+    }
+    
+    public double getAcceptableRisk() {
+        return acceptableRisk;
     }
 }

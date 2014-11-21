@@ -36,6 +36,19 @@
                         <h:inputText size="5" value="#{criteriaBean.probability4}" />
                         <br />
                         
+                        <h4>Вероятностный вектор для Ei (для вычисления Расширенного минимаксного критерия):</h4>
+                        <h:inputText size="5" value="" />
+                        <h:inputText size="5" value="" />
+                        <h:inputText size="5" value="" />
+                        <h:inputText size="5" value="" />
+                        
+                        <h4>??Вероятностный вектор для Fj (для вычисления Расширенного минимаксного критерия):</h4>
+                        <h:inputText size="5" value="" />
+                        <h:inputText size="5" value="" />
+                        <h:inputText size="5" value="" />
+                        <h:inputText size="5" value="" />
+                        <br />
+                        
                         <h4>Вероятности (для вычисления кр.Гермейера):</h4>
                         <h:inputText size="5" value="#{criteriaBean.probabilityGermeier1}" />
                         <h:inputText size="5" value="#{criteriaBean.probabilityGermeier2}" />
@@ -45,6 +58,10 @@
                         
                         <h4>Степень оптимизма, y (для вычисления кр.Гурвица):</h4>
                         <h:inputText size="5" value="#{criteriaBean.degreeOfOptimism}" />
+                        
+                        <h4>Уровень допустимого риска, e(для вычисления Составного кр. Байеса-Лапласа минимаксный):</h4>
+                        <h:inputText size="5" value="#{criteriaBean.acceptableRisk}" />
+                        
                         <h4>Критерии:</h4>
                         <h:selectManyCheckbox layout="pageDirection" value="#{criteriaBean.selectedCriteriaList}">
                             <f:selectItems value="#{criteriaBean.criteriaList}" var="list" itemValue="#{list.value}" itemLabel="#{list.label}" />

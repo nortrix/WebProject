@@ -1,6 +1,8 @@
-D:\projects\git\WebProject\src\main\java\com\mycompany\labfordb\processinginformations\ResultCalc.java
+D:\projects\git\WebProject\src\main\java\com\mycompany\labfordb\processinginformations\ResultToList.java
+D:\projects\git\WebProject\src\main\java\com\mycompany\labfordb\processinginformations\ResultCalcBean.java
 D:\projects\git\WebProject\src\main\java\com\mycompany\labfordb\demography\PreparedDemography.java
 D:\projects\git\WebProject\src\main\java\com\mycompany\labfordb\demography\DemographyDao.java
+D:\projects\git\WebProject\src\main\java\com\mycompany\labfordb\processinginformations\ResDemogData.java
 D:\projects\git\WebProject\src\main\java\com\mycompany\labfordb\authorization\AuthorizationBean.java
 D:\projects\git\WebProject\src\main\java\com\mycompany\labfordb\MenuBean.java
 D:\projects\git\WebProject\src\main\java\com\mycompany\labfordb\util\DataSource.java
@@ -13,4 +15,5 @@ D:\projects\git\WebProject\src\main\java\com\mycompany\labfordb\processinginform
 D:\projects\git\WebProject\src\main\java\com\mycompany\labfordb\demography\Demography.java
 D:\projects\git\WebProject\src\main\java\com\mycompany\labfordb\demography\DemographyMatrixReductionBean.java
 D:\projects\git\WebProject\src\main\java\com\mycompany\labfordb\demography\DemographyBean.java
+D:\projects\git\WebProject\src\main\java\com\mycompany\labfordb\processinginformations\ResultDemography.java
 D:\projects\git\WebProject\src\main\java\com\mycompany\labfordb\processinginformations\—riteria—alculation.java
