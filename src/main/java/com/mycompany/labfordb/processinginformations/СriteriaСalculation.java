@@ -405,42 +405,48 @@ public class СriteriaСalculation {
     }
     
     public void criteriiSostavnoiBaiesaLaplasaMM(List<PreparedDemography> demographyDataList, double acceptableRisk) {
-        double[] min = new double[demographyDataList.size()];
+        List<ValueWithIndexes> min = new ArrayList<ValueWithIndexes>();
         
-        double min1 = demographyDataList.get(0).getDoctorsSecurity();
-        int jIndex = 0;
+        double min1;
+        int jIndexMax;
         for (int i = 0; i < demographyDataList.size(); i++) {
+            min1 = demographyDataList.get(i).getDoctorsSecurity();
+            jIndexMax = i;
             if (min1 > demographyDataList.get(i).getDoctorsSecurity()) {
                 min1 = demographyDataList.get(i).getDoctorsSecurity();
-                jIndex = 0;
+                jIndexMax = 0;
             }
             if (min1 > demographyDataList.get(i).getBirthrate()) {
                 min1 = demographyDataList.get(i).getBirthrate();
-                jIndex = 1;
+                jIndexMax = 1;
             }
             if (min1 > demographyDataList.get(i).getMortality()) {
                 min1 = demographyDataList.get(i).getMortality();
-                jIndex = 2;
+                jIndexMax = 2;
             }
             if (min1 > demographyDataList.get(i).getMortalityInTheWorkingAge()) {
                 min1 = demographyDataList.get(i).getMortalityInTheWorkingAge();
-                jIndex = 3;
+                jIndexMax = 3;
             }
             
-            min[i] = min1;
+            ValueWithIndexes vwi = new ValueWithIndexes();
+            vwi.setValue(min1);
+            vwi.setiIndex(i);
+            vwi.setjIndex(jIndexMax);
+            
+            min.add(vwi);
         }
         
-        double max = min[0];
-        int index = 0;
-        for (int i = 0; i < min.length; i++) {
-            if (max < min[i]) {
-                max = min[i];
-                index = i;
+        double max = min.get(0).getValue();
+        int iIndexMax = min.get(0).getiIndex();
+        for (int i = 0; i < min.size(); i++) {
+            if (max < min.get(i).getValue()) {
+                max = min.get(i).getValue();
+                iIndexMax = min.get(i).getiIndex();
+                jIndexMax = min.get(i).getjIndex();
             }            
         }
-        
-//        System.out.println("criteriiMinimacsnii max = " + max + " index = " + index);
-        
+               
         List<PreparedDemography> tempDemographyDataList = new ArrayList<PreparedDemography>();
         for (int i = 0; i < demographyDataList.size(); i++) {
             PreparedDemography prepDem = new PreparedDemography();
@@ -454,19 +460,32 @@ public class СriteriaСalculation {
             tempDemographyDataList.add(prepDem);
         }
         
-        List<Double> j1 = new ArrayList<Double>();
+        List<ValueWithIndexes> j1 = new ArrayList<ValueWithIndexes>();
+        ValueWithIndexes vwi = new ValueWithIndexes();
         for (int i = 0; i < tempDemographyDataList.size(); i++) {
             if (tempDemographyDataList.get(i).getDoctorsSecurity() > acceptableRisk) {
-                j1.add(tempDemographyDataList.get(i).getDoctorsSecurity());
+                vwi.setValue(tempDemographyDataList.get(i).getDoctorsSecurity());
+                vwi.setiIndex(i);
+                vwi.setjIndex(0);
+                j1.add(vwi);
             }
             if (tempDemographyDataList.get(i).getBirthrate()> acceptableRisk) {
-                j1.add(tempDemographyDataList.get(i).getBirthrate());
+                vwi.setValue(tempDemographyDataList.get(i).getBirthrate());
+                vwi.setiIndex(i);
+                vwi.setjIndex(1);
+                j1.add(vwi);
             }
             if (tempDemographyDataList.get(i).getMortality()> acceptableRisk) {
-                j1.add(tempDemographyDataList.get(i).getMortality());
+                vwi.setValue(tempDemographyDataList.get(i).getMortality());
+                vwi.setiIndex(i);
+                vwi.setjIndex(2);
+                j1.add(vwi);
             }
             if (tempDemographyDataList.get(i).getMortalityInTheWorkingAge()> acceptableRisk) {
-                j1.add(tempDemographyDataList.get(i).getMortalityInTheWorkingAge());
+                vwi.setValue(tempDemographyDataList.get(i).getMortalityInTheWorkingAge());
+                vwi.setiIndex(i);
+                vwi.setjIndex(3);
+                j1.add(vwi);
             }
         }
         
@@ -503,75 +522,108 @@ public class СriteriaСalculation {
             }
         }
         maxColumn[3] = max2;
+
+        List<ValueWithIndexes> minColumn = new ArrayList<ValueWithIndexes>();
         
-        double[] minColumn = new double[4];
-        
-        double min2 = demographyDataList.get(0).getDoctorsSecurity();        
+        double min2 = demographyDataList.get(0).getDoctorsSecurity();
+        int iIndx = 0;
+        int jIndx = 0;
         for (int i = 0; i < demographyDataList.size(); i++) {
             if (min2 > demographyDataList.get(i).getDoctorsSecurity()) {
-                min2 = demographyDataList.get(i).getDoctorsSecurity();               
+                min2 = demographyDataList.get(i).getDoctorsSecurity();
+                iIndx = i;
+                jIndx = 0;
             }
         }
-        minColumn[0] = min2;
+        vwi.setValue(min2);
+        vwi.setiIndex(iIndx);
+        vwi.setjIndex(jIndx);
+        minColumn.add(vwi);
         
         min2 = demographyDataList.get(0).getBirthrate();
+        iIndx = 0;
+        jIndx = 1;
         for (int i = 0; i < demographyDataList.size(); i++) {
             if (min2 > demographyDataList.get(i).getBirthrate()) {
                 min2 = demographyDataList.get(i).getBirthrate();
+                iIndx = i;
+                jIndx = 1;
             }
         }
-        minColumn[1] = min2;
+        vwi.setValue(min2);
+        vwi.setiIndex(iIndx);
+        vwi.setjIndex(jIndx);
+        minColumn.add(vwi);
         
         min2 = demographyDataList.get(0).getMortality();
+        iIndx = 0;
+        jIndx = 2;
         for (int i = 0; i < demographyDataList.size(); i++) {
             if (min2 > demographyDataList.get(i).getMortality()) {
                 min2 = demographyDataList.get(i).getMortality();
+                iIndx = i;
+                jIndx = 2;
             }
         }
-        minColumn[2] = min2;
+        vwi.setValue(min2);
+        vwi.setiIndex(iIndx);
+        vwi.setjIndex(jIndx);
+        minColumn.add(vwi);
         
         min2 = demographyDataList.get(0).getMortalityInTheWorkingAge();
+        iIndx = 0;
+        jIndx = 3;
         for (int i = 0; i < demographyDataList.size(); i++) {
             if (min2 > demographyDataList.get(i).getMortalityInTheWorkingAge()) {
                 min2 = demographyDataList.get(i).getMortalityInTheWorkingAge();
+                iIndx = i;
+                jIndx = 3;
             }
         }
-        minColumn[3] = min2;
+        vwi.setValue(min2);
+        vwi.setiIndex(iIndx);
+        vwi.setjIndex(jIndx);
+        minColumn.add(vwi);
            
         
-        List<Double> j2 = new ArrayList<Double>();
+        List<ValueWithIndexes> j2 = new ArrayList<ValueWithIndexes>();
         for (int i = 0; i < maxColumn.length; i++) {
-            if ((maxColumn[i] - max) >= (max - minColumn[i])) {
-                j2.add(minColumn[i]);
+            if ((maxColumn[i] - max) >= (max - minColumn.get(i).getValue())) {
+                vwi.setValue(minColumn.get(i).getValue());
+                vwi.setiIndex(minColumn.get(i).getiIndex());
+                vwi.setjIndex(minColumn.get(i).getjIndex());
+                j2.add(vwi);
             }
         }
         
-        List<Double> resultList = new ArrayList<Double>();
+        List<ValueWithIndexes> resultList = new ArrayList<ValueWithIndexes>();
         for (int i = 0; i < j1.size(); i++) {
             for (int j = 0; j < j2.size(); j++) {
-                if (j1.get(i) == j2.get(i)) {
+                if (j1.get(i).getValue() == j2.get(i).getValue()) {
                     resultList.add(j1.get(i));
                 }
             }            
         }
         
         double result;
-        if (resultList.size() == 0) {
+        int iIndex = 0, jIndex = 0;
+        if (resultList.isEmpty()) {
             result = 0;
         } else {
-        result = resultList.get(0);
+        result = resultList.get(0).getValue();
             for (int i = 0; i < resultList.size(); i++) {
-                if (result < resultList.get(i)) {
-                    result = resultList.get(i);
+                if (result < resultList.get(i).getValue()) {
+                    result = resultList.get(i).getValue();
+                    iIndex = resultList.get(i).getiIndex();
+                    jIndex = resultList.get(i).getjIndex();
                 }            
             }
         }
         
-        System.out.println("criteriiSostavnoiBaiesaLaplasaMM max = " + result + " index = " + index);
+        System.out.println("criteriiSostavnoiBaiesaLaplasaMM max = " + result + " iIndex = " + iIndex + " jIndex = " + jIndex);
         
-        //???????????????????
-        ResultToList.getInstance().setResultToList(demographyDataList.get(index).getId(), "Составной критерий Байеса-Лапласа минимаксный", 
-                "max", result, demographyDataList.get(index).getDistrict());
+        ResultToList.getInstance().setResultToList(demographyDataList.get(iIndex).getId(), "Составной критерий Байеса-Лапласа минимаксный", 
+                "max", result, demographyDataList.get(iIndex).getDistrict());
         
     }
     

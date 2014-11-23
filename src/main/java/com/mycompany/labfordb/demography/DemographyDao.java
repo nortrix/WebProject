@@ -5,6 +5,7 @@
  */
 package com.mycompany.labfordb.demography;
 
+import com.mycompany.labfordb.authorization.AuthorizationUser;
 import com.mycompany.labfordb.util.DataSource;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -71,10 +72,15 @@ public class DemographyDao {
 public List<Demography> getDemographyData() {        
         List<Demography> demographyDataList = new ArrayList<Demography>();
         
-        String QUERY_GET_DEMOGRAPHY_DATA = "SELECT DEMOGRAPHY.ID, DEMOGRAPHY.DOCTORS_SECURITY,"
-                + " DEMOGRAPHY.BIRTHRATE, DEMOGRAPHY.MORTALITY, DEMOGRAPHY.MORTALITY_IN_THE_WORKING_AGE, DISTRICTS.NAME\n"
-                + "FROM DEMOGRAPHY, DISTRICTS WHERE DEMOGRAPHY.ID_DISTRICT = DISTRICTS.ID;";
-        
+//        String QUERY_GET_DEMOGRAPHY_DATA = "SELECT DEMOGRAPHY.ID, DEMOGRAPHY.DOCTORS_SECURITY,"
+//                + " DEMOGRAPHY.BIRTHRATE, DEMOGRAPHY.MORTALITY, DEMOGRAPHY.MORTALITY_IN_THE_WORKING_AGE, DISTRICTS.NAME\n"
+//                + "FROM DEMOGRAPHY, DISTRICTS WHERE DEMOGRAPHY.ID_DISTRICT = DISTRICTS.ID;";
+        String QUERY_GET_DEMOGRAPHY_DATA = "SELECT DEMOGRAPHY.ID, DEMOGRAPHY.DOCTORS_SECURITY, \n" +
+            "DEMOGRAPHY.BIRTHRATE, DEMOGRAPHY.MORTALITY, DEMOGRAPHY.MORTALITY_IN_THE_WORKING_AGE, DISTRICTS.NAME\n" +
+            "FROM DEMOGRAPHY, DISTRICTS WHERE DEMOGRAPHY.ID_DISTRICT = DISTRICTS.ID AND DEMOGRAPHY.ID IN \n" +
+            "(SELECT ORDERS_THEME.ID_DEMOGRAPHY \n" +
+            "FROM ORDERS_THEME WHERE ORDERS_THEME.ID_ORDER IN \n" +
+            "(SELECT ORDERS.ID FROM ORDERS WHERE ORDERS.ID_CUSTOMER = " + AuthorizationUser.getId() + "));";
         try {   
             Connection conn = DataSource.instance().connection();
             Statement st = null;
