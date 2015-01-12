@@ -439,6 +439,7 @@ public class СriteriaСalculation {
         
         double max = min.get(0).getValue();
         int iIndexMax = min.get(0).getiIndex();
+        jIndexMax = min.get(0).getjIndex();
         for (int i = 0; i < min.size(); i++) {
             if (max < min.get(i).getValue()) {
                 max = min.get(i).getValue();
@@ -522,9 +523,10 @@ public class СriteriaСalculation {
             }
         }
         maxColumn[3] = max2;
-
+//??? не корректно работает
         List<ValueWithIndexes> minColumn = new ArrayList<ValueWithIndexes>();
         
+        ValueWithIndexes vwi1 = new ValueWithIndexes();        
         double min2 = demographyDataList.get(0).getDoctorsSecurity();
         int iIndx = 0;
         int jIndx = 0;
@@ -535,11 +537,12 @@ public class СriteriaСalculation {
                 jIndx = 0;
             }
         }
-        vwi.setValue(min2);
-        vwi.setiIndex(iIndx);
-        vwi.setjIndex(jIndx);
-        minColumn.add(vwi);
+        vwi1.setValue(min2);
+        vwi1.setiIndex(iIndx);
+        vwi1.setjIndex(jIndx);
+        minColumn.add(vwi1);
         
+        ValueWithIndexes vwi2 = new ValueWithIndexes();
         min2 = demographyDataList.get(0).getBirthrate();
         iIndx = 0;
         jIndx = 1;
@@ -550,11 +553,12 @@ public class СriteriaСalculation {
                 jIndx = 1;
             }
         }
-        vwi.setValue(min2);
-        vwi.setiIndex(iIndx);
-        vwi.setjIndex(jIndx);
-        minColumn.add(vwi);
+        vwi2.setValue(min2);
+        vwi2.setiIndex(iIndx);
+        vwi2.setjIndex(jIndx);
+        minColumn.add(vwi2);
         
+        ValueWithIndexes vwi3 = new ValueWithIndexes();
         min2 = demographyDataList.get(0).getMortality();
         iIndx = 0;
         jIndx = 2;
@@ -565,11 +569,12 @@ public class СriteriaСalculation {
                 jIndx = 2;
             }
         }
-        vwi.setValue(min2);
-        vwi.setiIndex(iIndx);
-        vwi.setjIndex(jIndx);
-        minColumn.add(vwi);
+        vwi3.setValue(min2);
+        vwi3.setiIndex(iIndx);
+        vwi3.setjIndex(jIndx);
+        minColumn.add(vwi3);
         
+        ValueWithIndexes vwi4 = new ValueWithIndexes();
         min2 = demographyDataList.get(0).getMortalityInTheWorkingAge();
         iIndx = 0;
         jIndx = 3;
@@ -580,19 +585,20 @@ public class СriteriaСalculation {
                 jIndx = 3;
             }
         }
-        vwi.setValue(min2);
-        vwi.setiIndex(iIndx);
-        vwi.setjIndex(jIndx);
-        minColumn.add(vwi);
+        vwi4.setValue(min2);
+        vwi4.setiIndex(iIndx);
+        vwi4.setjIndex(jIndx);
+        minColumn.add(vwi4);
            
         
         List<ValueWithIndexes> j2 = new ArrayList<ValueWithIndexes>();
         for (int i = 0; i < maxColumn.length; i++) {
-            if ((maxColumn[i] - max) >= (max - minColumn.get(i).getValue())) {
-                vwi.setValue(minColumn.get(i).getValue());
-                vwi.setiIndex(minColumn.get(i).getiIndex());
-                vwi.setjIndex(minColumn.get(i).getjIndex());
-                j2.add(vwi);
+            if ((maxColumn[i] - max) >= (max - minColumn.get(i).getValue())) {                
+                ValueWithIndexes vwi5 = new ValueWithIndexes();                
+                vwi5.setValue(minColumn.get(i).getValue());
+                vwi5.setiIndex(minColumn.get(i).getiIndex());
+                vwi5.setjIndex(minColumn.get(i).getjIndex());
+                j2.add(vwi5);
             }
         }
         
