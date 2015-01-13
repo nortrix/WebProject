@@ -28,25 +28,25 @@
                     <table>
                         <c:choose>
                             <c:when test="#{menuBean.logged}">
-                                <h:outputText value="Authorization success" />
+                                <h:outputText value="Авторизация завершенна" />
                             </c:when>
                             <c:otherwise>
                                 <h:form prependId="false">
                                     <tr>
-                                        <td>Login:</td>
+                                        <td>Логин:</td>
                                         <td>                                
                                             <h:inputText id="login" value="#{authorizationBean.login}" />
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>Password:</td>
+                                        <td>Пароль:</td>
                                         <td>
                                             <h:inputSecret id="password" value="#{authorizationBean.password}" />
                                         </td>
                                     </tr>                            
                                     <tr align="center">                            
                                         <td colspan="2">
-                                            <h:commandButton value="Authorization" action="index.xhtml">
+                                            <h:commandButton value="Войти" action="index.xhtml">
                                                 <f:ajax execute="login password" render="out" />
                                             </h:commandButton>
                                         </td>

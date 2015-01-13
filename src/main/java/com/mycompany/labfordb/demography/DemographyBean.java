@@ -22,7 +22,7 @@ public class DemographyBean implements Serializable {
     private int birthrate;
     private int mortality;
     private int mortalityInTheWorkingAge;
-    private final String feedBack = "Data was set!";
+    private final String feedBack = "Данные записанны!";
 
     public void setDistrict(String district) {
         this.district = district;

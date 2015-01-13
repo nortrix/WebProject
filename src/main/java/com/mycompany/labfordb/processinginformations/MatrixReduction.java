@@ -21,6 +21,7 @@ public class MatrixReduction {
     //Приведение данных таблицы Демографии
     public List<PreparedDemography> demographyMatrixReduction(List<Demography> demographyDataList) {
 
+        
         int columnNum = 4;
         int rowNum = demographyDataList.size();        
         double[][] data = new double[rowNum][columnNum];
@@ -68,6 +69,7 @@ public class MatrixReduction {
             pd.setMortality(data[i][2]);
             pd.setMortalityInTheWorkingAge(data[i][3]);
             
+            preparedDataList.add(pd);
         }
         return preparedDataList;
     }

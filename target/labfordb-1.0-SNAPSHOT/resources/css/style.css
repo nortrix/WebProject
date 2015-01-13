@@ -19,8 +19,8 @@ and open the template in the editor.
 .ordersHeader {
     text-align: center;
     font-style: italic;
-    color: greenyellow;
-    background: teal;
+    color: white;
+    background: limegreen;
 }
 
 .tableResult {
@@ -30,7 +30,7 @@ and open the template in the editor.
 .oddColumn {
     height: 25px;
     text-align: center;
-    background: graytext;
+    background: whitesmoke;
 }
 
 .evenColumn {
