@@ -66,16 +66,19 @@ public class DemographyBean implements Serializable {
     }
 
     public String getFeedBack() {
-        if (!"".equals(district) & district.length() > 1) {      
+        if (!"".equals(district) && district.length() > 1 && flag) { 
+            flag = false;
             return feedBack;
         } else {
             return "";
         }        
     }
-    
+    private boolean flag = false;
    public void updateData(ActionEvent e){
-       System.out.println("+++");
-       DemographyDao.getInstance().setDemographyData(district, 
+        if (!"".equals(district) && district.length() > 1) {
+            DemographyDao.getInstance().setDemographyData(district, 
                     doctorsSecurity, birthrate, mortality, mortalityInTheWorkingAge);
+            flag = true;
+        }
 }
 }
