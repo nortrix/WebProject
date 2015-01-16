@@ -74,6 +74,7 @@ public class DemographyBean implements Serializable {
         }        
     }
     private boolean flag = false;
+    
    public void updateData(ActionEvent e){
         if (!"".equals(district) && district.length() > 1) {
             DemographyDao.getInstance().setDemographyData(district, 
