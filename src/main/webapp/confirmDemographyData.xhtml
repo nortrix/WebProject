@@ -27,12 +27,12 @@
                 <!--Ячейка содержащая основное содержание-->
                 
                 <td align="center">
-                    <h4>Demography data:</h4>
+                    <h2>Данные по демографии:</h2>
         <h:form>
             <h:dataTable value="#{demographyData.demographyData}" var="demData"
                          styleClass="orders"
                          headerClass="ordersHeader"
-                         columnClasses="oddColumn, evenColumn, ageStyle">
+                         columnClasses="oddColumn, evenColumn, oddColumn, evenColumn, oddColumn, evenColumn">
                 <h:column><f:facet name="header">ID</f:facet>
                     #{demData.id}
                 </h:column>

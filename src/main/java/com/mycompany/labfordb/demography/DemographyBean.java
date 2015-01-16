@@ -8,6 +8,7 @@ package com.mycompany.labfordb.demography;
 import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.event.ActionEvent;
 
 /**
  *
@@ -65,12 +66,16 @@ public class DemographyBean implements Serializable {
     }
 
     public String getFeedBack() {
-        if (district != null) {      
-            DemographyDao.getInstance().setDemographyData(district, 
-                    doctorsSecurity, birthrate, mortality, mortalityInTheWorkingAge);
+        if (!"".equals(district) & district.length() > 1) {      
             return feedBack;
         } else {
             return "";
         }        
-    }       
+    }
+    
+   public void updateData(ActionEvent e){
+       System.out.println("+++");
+       DemographyDao.getInstance().setDemographyData(district, 
+                    doctorsSecurity, birthrate, mortality, mortalityInTheWorkingAge);
+}
 }

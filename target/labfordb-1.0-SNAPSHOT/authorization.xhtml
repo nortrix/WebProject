@@ -25,10 +25,11 @@
 
                 </td>
                 <td align="center">
+                    <h1>Авторизация</h1>
                     <table>
                         <c:choose>
                             <c:when test="#{menuBean.logged}">
-                                <h:outputText value="Авторизация завершенна" />
+                                <h:outputText value="Авторизация завершена" />
                             </c:when>
                             <c:otherwise>
                                 <h:form prependId="false">
@@ -63,5 +64,8 @@
                 </td>
             </tr>
         </table>
+        <div id="footer">
+            &copy; Стратула Валентин
+        </div>
     </h:body>
 </html>
